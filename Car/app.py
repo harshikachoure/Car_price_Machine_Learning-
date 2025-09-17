@@ -3,7 +3,7 @@ import numpy as np
 import pickle as pk 
 import streamlit as st
 
-model = pk.load(open(os.path.join('Car''model.pkl'),'rb'))
+model = pk.load(open(os.path.join('Car','model.pkl'),'rb'))
 
 st.header('Car Price Prediction ML Model')
 
@@ -50,6 +50,7 @@ if st.button("Predict"):
 
 
     st.markdown('Car Price is going to be '+ str(car_price[0]))
+
 
 
 
