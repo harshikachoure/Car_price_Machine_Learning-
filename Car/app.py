@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np 
 import pickle as pk 
 import streamlit as st
+import os
 
 model = pk.load(open(os.path.join('Car','model.pkl'),'rb'))
 
@@ -50,6 +51,7 @@ if st.button("Predict"):
 
 
     st.markdown('Car Price is going to be '+ str(car_price[0]))
+
 
 
 
