@@ -2,21 +2,8 @@ import pandas as pd
 import numpy as np 
 import pickle as pk 
 import streamlit as st
-import os
 
-import pickle
-from pathlib import Path
-
-BASE_DIR = Path(__file__).resolve().parent
-model_file = BASE_DIR / 'model.pkl'
-
-if not model_file.exists():
-    raise FileNotFoundError(f"Model file not found at {model_file}")
-
-with open(model_file, 'rb') as f:
-    model = pickle.load(f)
-
-
+model = pk.load(open('model.pkl','rb'))
 
 st.header('Car Price Prediction ML Model')
 
