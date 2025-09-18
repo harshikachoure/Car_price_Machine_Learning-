@@ -4,8 +4,19 @@ import pickle as pk
 import streamlit as st
 import os
 
+import pickle
+from pathlib import Path
 
-model=pk.load(open('model.pkl','rb'))
+BASE_DIR = Path(__file__).resolve().parent
+model_file = BASE_DIR / 'model.pkl'
+
+if not model_file.exists():
+    raise FileNotFoundError(f"Model file not found at {model_file}")
+
+with open(model_file, 'rb') as f:
+    model = pickle.load(f)
+
+
 
 st.header('Car Price Prediction ML Model')
 
@@ -52,6 +63,7 @@ if st.button("Predict"):
 
 
     st.markdown('Car Price is going to be '+ str(car_price[0]))
+
 
 
 
